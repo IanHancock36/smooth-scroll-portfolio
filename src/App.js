@@ -1,11 +1,19 @@
 
 import './App.css';
-
+import Section from "./Components/Section/Section"
+import SmoothScroll from "./Components/SmoothScroll/SmoothScroll"
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <SmoothScroll>
+    <h2> Smooth Scroll </h2>
+    <Section flexDirection = "row" />
+    <Section flexDirection="row-reverse" />
+      <Section flexDirection="row" />
+      <Section flexDirection="row-reverse" />
+      <Section flexDirection="row" />
+      <Section flexDirection="row-reverse" />
+
+    </SmoothScroll>
   );
 }
 
