@@ -1,5 +1,5 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React ,{useState,useEffect} from'react';
+import { makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -9,9 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 
 const useStyles = makeStyles((theme) => ({
-  
-    
-    root: {
+  root: {
     flexGrow: 1,
   },
   menuButton: {
@@ -19,23 +17,50 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color: 'white',
   },
+  appBarTransparent:{
+     backgroundColor: 'green'
+  },
+  appBarSolid:{
+    backgroundColor: 'yellow'
+  }
 }));
 
 export default function ButtonAppBar() {
-  const classes = useStyles();
+ const classes = useStyles()
+ const [navbarBackground, setNavbarBackground] = useState('appBarTransparent')
+
+ const navRef = React.useRef()
+ navRef.current = navbarBackground 
+
+ useEffect(() => {
+  const handleScroll =()=> {
+    const show = window.scrollY >310 
+    if(show){
+      setNavbarBackground('appBarSolid')
+    } else{
+      setNavbarBackground('appBarTransparent')
+    }
+  }
+  document.addEventListener('scroll',handleScroll)
+   return () => {
+     document.removeEventListener('scroll',handleScroll)
+   }
+ }, [])
+
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div className ={classes.root}>
+      <AppBar position="fixed" className={classes[navRef.current]}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Ian Hancock
-          </Typography>
-          <Button color="inherit">Whoah</Button>
+         <IconButton className={classes.menuButton}>
+           <MenuIcon />
+    <Typography variant ="h6" className={classes.title}>
+      Hey
+    </Typography>
+           
+         </IconButton>
         </Toolbar>
       </AppBar>
     </div>
