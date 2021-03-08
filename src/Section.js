@@ -3,6 +3,7 @@ import "./Section.css";
 
 const Section =({flexDirection}) => {
     return (
+      
         <div className="section" style ={{flexDirection : flexDirection}}>
             <div className = 'left-container'>
                 <div className = "block"></div>
@@ -21,7 +22,7 @@ const Section =({flexDirection}) => {
       </div>
     </div>
  </div>
-    
+
     )
 }
 

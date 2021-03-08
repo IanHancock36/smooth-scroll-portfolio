@@ -10,14 +10,18 @@
     width: 250px;
     height: 250px;
     padding: 60px;
-    background-color: peachpuff;
+    background-color: rgb(39, 37, 37);
   }
   
   .container {
     width: 500px;
+    
+  
   }
   
   p {
     font-size: 1.5rem;
    
   }
+
+  
