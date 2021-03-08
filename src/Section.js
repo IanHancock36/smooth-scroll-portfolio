@@ -1,7 +1,7 @@
 import React from 'react'
-import "./section.css";
+import "./Section.css";
 
-const section =({flexDirection}) => {
+const Section =({flexDirection}) => {
     return (
         <div className="section" style ={{flexDirection : flexDirection}}>
             <div className = 'left-container'>
@@ -25,4 +25,4 @@ const section =({flexDirection}) => {
     )
 }
 
-export default section;
+export default Section;

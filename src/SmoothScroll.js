@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 
 import "./SmoothScroll.css";
-import useWindowSize from "../../Hooks/useWindowSize";
+import useWindowSize from "./Hooks";
 
 const SmoothScroll = ({ children }) => {
   // 1.
@@ -34,7 +34,7 @@ const SmoothScroll = ({ children }) => {
   
   useEffect(() => {
     requestAnimationFrame(() => smoothScrollingHandler());
-  }, []);
+  }, );
 
 
   const smoothScrollingHandler = () => {
